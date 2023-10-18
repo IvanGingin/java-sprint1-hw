@@ -10,7 +10,7 @@ class Main {
             int i = scanner.nextInt();
             if (i == 1) {
                 // здесь будет логика команды 1
-                StepTracker.addNewNumberStepsPerDay();
+                StepTracker.printDaysAndStepsFromMonth();
             } else if (i == 2) {
                 // здесь будет логика команды 2
                 StepTracker.addNewNumberStepsPerDay();

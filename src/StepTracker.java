@@ -40,7 +40,11 @@ class StepTracker {
         // Сохранение полученных данных
         monthData.days[dayNumber - 1] = steps;
     }
-     void StepTracker(){
+
+    public static void printDaysAndStepsFromMonth() {
+    }
+
+    void StepTracker(){
         System.out.println("Новая цель шагов на день");
         int newGoal = scanner.nextInt();
         if (newGoal <= 0) {
