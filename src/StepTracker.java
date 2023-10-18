@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 class StepTracker {
-    Scanner scanner;
-    MonthData[] monthToData = new MonthData[12];
-    int goalByStepsPerDay = 10000;
+    static Scanner scanner;
+    static MonthData[] monthToData = new MonthData[12];
+    static int goalByStepsPerDay = 10000;
 
     StepTracker(Scanner scan) {
         scanner = scan;
