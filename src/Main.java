@@ -3,22 +3,22 @@ import java.util.Scanner;
 class Main {
 
     public static void main(String[] args) {
+        StepTracker stepTracker = new StepTracker();
         Scanner scanner = new Scanner(System.in);
+        MonthData monthData = new MonthData();
+        Converter converter = new Converter();
         while (true) {
             printMenu();
 
             int i = scanner.nextInt();
             if (i == 1) {
-                // здесь будет логика команды 1
-                StepTracker.printDaysAndStepsFromMonth();
+                stepTracker.printDaysAndStepsFromMonth(scanner);
             } else if (i == 2) {
-                // здесь будет логика команды 2
-                StepTracker.addNewNumberStepsPerDay();
+                stepTracker.addNewNumberStepsPerDay(scanner);
             } else if (i == 3) {
-                StepTracker.printStatistic();;// здесь будет логика команды 3
+                stepTracker.printStatistic(scanner);
             } else if (i == 4) {
                 System.out.println("Пока!");
-                scanner.close();
                 return;
             } else {
                 System.out.println("Такой команды нет");
@@ -28,11 +28,9 @@ class Main {
 
     static void printMenu() {
         System.out.println("Что вы хотите сделать? ");
-        System.out.println("1 - Введите количество шагов за ");
-        System.out.println("2 - Введите новое целевое количество шагов за день");
-        System.out.println("3 - Статистика за ");
+        System.out.println("1 - Посмотреть данные по шагам за месяц");
+        System.out.println("2 - Введите данные заново");
+        System.out.println("3 - Вывести статистику");
         System.out.println("4 - Закончить работу с приложением");
-
     }
-
 }
