@@ -19,7 +19,7 @@ public class Main {
                 stepTracker.printStatistic();
             } else if (i == 4) {
                 System.out.println("Пока!");
-                break;
+                return;
             } else {
                 System.out.println("Такой команды нет");
             }
