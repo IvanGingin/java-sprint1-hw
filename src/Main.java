@@ -19,7 +19,7 @@ public class Main {
                 stepTracker.printStatistic();
             } else if (i == 4) {
                 System.out.println("Пока!");
-                return;
+                return; // завершаем программу
             } else {
                 System.out.println("Такой команды нет");
             }
@@ -28,9 +28,9 @@ public class Main {
 
     static void printMenu() {
         System.out.println("Что вы хотите сделать? ");
-        System.out.println("1 - Посмотреть данные по шагам за месяц");
-        System.out.println("2 - Введите данные заново");
-        System.out.println("3 - Вывести статистику");
+        System.out.println("1 - ввести количество шагов за определённый день");
+        System.out.println("2 - изменить цель по количеству шагов в день");
+        System.out.println("3 - напечатать статистику за определённый месяц");
         System.out.println("4 - Закончить работу с приложением");
     }
 }
