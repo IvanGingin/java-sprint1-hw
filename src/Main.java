@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
-class Main {
+public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         StepTracker stepTracker = new StepTracker(scanner);
-        MonthData monthData = new MonthData();
-        Converter converter = new Converter();
+
 
         while (true) {
             printMenu();
@@ -20,7 +19,7 @@ class Main {
                 stepTracker.printStatistic();
             } else if (i == 4) {
                 System.out.println("Пока!");
-                return;
+                break;
             } else {
                 System.out.println("Такой команды нет");
             }

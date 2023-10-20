@@ -3,8 +3,8 @@ public class StepTracker {
     Scanner scanner;
      MonthData[] monthToData = new MonthData[12];
      int goalByStepsPerDay = 10000;
-     public StepTracker(Scanner scanner) {
-
+     StepTracker(Scanner scan) {
+         scanner = scan;
 
          for (int i = 0; i < monthToData.length; i++) {
              monthToData[i] = new MonthData();
@@ -14,7 +14,7 @@ public class StepTracker {
     void addNewNumberStepsPerDay() {
         System.out.println("Введите номер месяца");
         int monthNumber = scanner.nextInt();
-        if (monthNumber <= 0 || monthNumber > 12) {
+        if (monthNumber <= 12 & monthNumber <= 1) {
             System.out.println("Неверно задан месяц");
             return;
         }
@@ -37,7 +37,16 @@ public class StepTracker {
         monthData.days[day - 1] = monthData.days[day - 1] + steps;;
 
     }
-
+    void changeStepGoal() {
+        System.out.println("Введите новую цель шагов на день:");
+        int newGoal = scanner.nextInt();
+        if (newGoal <= 0) {
+            System.out.println("Цель должна быть положительным числом.");
+        } else {
+            goalByStepsPerDay = newGoal;
+            System.out.println("Цель шагов на день изменена на " + newGoal);
+        }
+    }
 
     void printStatistic() {
         System.out.println("Введите число месяца");
@@ -45,10 +54,11 @@ public class StepTracker {
         if (monthNumber <= 0 || monthNumber > 12 ) {
             System.out.println("Неверно задан месяц");
             return;
+
         }
         MonthData monthData = monthToData[monthNumber - 1];
-
         int sumSteps = monthData.sumStepsFromMonth();
+        monthData.printDaysAndStepsFromMonth();
         System.out.println("Сумма шагов за месяц: " + sumSteps);
 
         int maxSteps = monthData.maxSteps();
@@ -68,14 +78,5 @@ public class StepTracker {
 
         System.out.println();
     }
-    void changeStepGoal() {
-        System.out.println("Введите новую цель шагов на день:");
-        int newGoal = scanner.nextInt();
-        if (newGoal <= 0) {
-            System.out.println("Цель должна быть положительным числом.");
-        } else {
-            goalByStepsPerDay = newGoal;
-            System.out.println("Цель шагов на день изменена на " + newGoal);
-        }
-    }
+
 }
