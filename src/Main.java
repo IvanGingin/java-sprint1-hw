@@ -3,20 +3,21 @@ import java.util.Scanner;
 class Main {
 
     public static void main(String[] args) {
-        StepTracker stepTracker = new StepTracker();
         Scanner scanner = new Scanner(System.in);
+        StepTracker stepTracker = new StepTracker(scanner);
         MonthData monthData = new MonthData();
         Converter converter = new Converter();
+
         while (true) {
             printMenu();
 
             int i = scanner.nextInt();
             if (i == 1) {
-                stepTracker.printDaysAndStepsFromMonth(scanner);
+                stepTracker.addNewNumberStepsPerDay();
             } else if (i == 2) {
-                stepTracker.addNewNumberStepsPerDay(scanner);
+                stepTracker.changeStepGoal();
             } else if (i == 3) {
-                stepTracker.printStatistic(scanner);
+                stepTracker.printStatistic();
             } else if (i == 4) {
                 System.out.println("Пока!");
                 return;

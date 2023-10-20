@@ -1,15 +1,17 @@
 import java.util.Scanner;
-
-class StepTracker {
+public class StepTracker {
+    Scanner scanner;
      MonthData[] monthToData = new MonthData[12];
      int goalByStepsPerDay = 10000;
-     public StepTracker() {
+     public StepTracker(Scanner scanner) {
+
+
          for (int i = 0; i < monthToData.length; i++) {
              monthToData[i] = new MonthData();
          }
      }
 
-    public void addNewNumberStepsPerDay(Scanner scanner) {
+    void addNewNumberStepsPerDay() {
         System.out.println("Введите номер месяца");
         int monthNumber = scanner.nextInt();
         if (monthNumber <= 0 || monthNumber > 12) {
@@ -18,8 +20,8 @@ class StepTracker {
         }
 
         System.out.println("Введите день от 1 до 30 (включительно)");
-        int dayNumber = scanner.nextInt();
-        if (dayNumber <= 0 || dayNumber > 30) {
+        int day = scanner.nextInt();
+        if (day <= 0 || day > 30) {
             System.out.println("Неверно задан день");
             return;
         }
@@ -32,21 +34,12 @@ class StepTracker {
         }
 
         MonthData monthData = monthToData[monthNumber - 1];
-        monthData.days[dayNumber - 1] = steps;
+        monthData.days[day - 1] = monthData.days[day - 1] + steps;;
+
     }
 
-    public void printDaysAndStepsFromMonth(Scanner scanner) {
-        System.out.println("Введите число месяца");
-        int monthNumber = scanner.nextInt();
-        if (monthNumber <= 0 || monthNumber > 12 ) {
-            System.out.println("Неверно задан месяц");
-            return;
-        }
-        MonthData monthData = monthToData[monthNumber -1];
-        monthData.printDaysAndStepsFromMonth();
-    }
 
-    public void printStatistic(Scanner scanner) {
+    void printStatistic() {
         System.out.println("Введите число месяца");
         int monthNumber = scanner.nextInt();
         if (monthNumber <= 0 || monthNumber > 12 ) {
@@ -75,7 +68,7 @@ class StepTracker {
 
         System.out.println();
     }
-    public void changeStepGoal() {
+    void changeStepGoal() {
         System.out.println("Введите новую цель шагов на день:");
         int newGoal = scanner.nextInt();
         if (newGoal <= 0) {
