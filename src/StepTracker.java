@@ -14,7 +14,7 @@ public class StepTracker {
     void addNewNumberStepsPerDay() {
         System.out.println("Введите номер месяца");
         int monthNumber = scanner.nextInt();
-        if (monthNumber <= 12 & monthNumber < 0) {
+        if (monthNumber <= 0 || monthNumber > 12) {
             System.out.println("Неверно задан месяц");
             return;
         }
