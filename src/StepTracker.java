@@ -34,10 +34,11 @@ public class StepTracker {
         }
 
         MonthData monthData = monthToData[monthNumber - 1];
-        monthData.days[day - 1] = monthData.days[day - 1] + steps;;
+        monthData.days[day - 1] = monthData.days[day - 1] + steps;
 
     }
     void changeStepGoal() {
+         System.out.println("Ваша цель шагов на сегодня: " + goalByStepsPerDay);
         System.out.println("Введите новую цель шагов на день:");
         int newGoal = scanner.nextInt();
         if (newGoal <= 0) {
